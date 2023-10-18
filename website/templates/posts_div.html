@@ -1,11 +1,11 @@
 {% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
 %}
-<h1 align="center">{% block header %}Posts{% endblock %}</h1>
+<h1 align="center">{% block header %}StartUps{% endblock %}</h1>
 <div id="posts">
   {% for post in posts %}
   <div class="card border-dark">
     <div class="card-header d-flex justify-content-between align-items-center">
-      <a href="/posts/{{post.user.username}}">{{post.user.username}}</a>
+      <a href="/startups/{{post.user.username}}">{{post.user.username}}</a>
       <div>
         <span id="likes-count-{{post.id}}">
         {{ post.likes|length }}</span> 
@@ -30,7 +30,7 @@
           ></button>
           <ul class="dropdown-menu">
             <li>
-              <a href="/delete-post/{{post.id}}" class="dropdown-item"
+              <a href="/delete-startup/{{post.id}}" class="dropdown-item"
                 >Delete</a
               >
             </li>
@@ -48,7 +48,7 @@
             {% for comment in post.comments %}
             <div class="d-flex justify-content-between align-items-center">
               <div>
-                <a href="/posts/{{comment.user.username}}"
+                <a href="/startups/{{comment.user.username}}"
                   >{{comment.user.username}}</a
                 >: {{comment.text}}
               </div>
@@ -108,9 +108,9 @@
 </div>
 {% block footer %}
 <div align="center">
-  <a href="/create-post"
+  <a href="/create-startup"
     ><button type="button" class="btn btn-primary btn-lg">
-      Create a Post
+      Create a StartUp
     </button></a
   >
 </div>
