@@ -19,11 +19,12 @@ def home():
 def create_post():
     if request.method == "POST":
         text = request.form.get('text')
+        title = request.form.get('title')
 
         if not text:
             flash('StartUp cannot be empty', category='error')
         else:
-            post = Post(text=text, author=current_user.id)
+            post = Post(text=text, author=current_user.id, title=title)
             db.session.add(post)
             db.session.commit()
             flash('StartUp created!', category='success')
